@@ -1,11 +1,10 @@
 package org.example1;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-
-import java.util.ArrayList;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Consumer {
@@ -15,11 +14,11 @@ public class Consumer {
 		properties.put("bootstrap.servers", "localhost:9092");
 		properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-		properties.put("group.id", "test-group");
+		properties.put("group.id", "SampleConsumer");
 
 		KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
 		List<String> topics = new ArrayList<>();
-		topics.add("testTopic8");
+		topics.add("testTopic11");
 		kafkaConsumer.subscribe(topics);
 		try {
 			while (true) {
