@@ -2,7 +2,6 @@ package org.example1;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-
 import java.util.stream.IntStream;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +16,7 @@ public class Producer {
 	private final KafkaProducer<String, String> kafkaProducer;
 	private static final String CLIENT_ID = "SampleProducer";
 	private static ExecutorService ex = Executors.newFixedThreadPool(200000);
-	
+
 	public Producer() {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");

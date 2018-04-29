@@ -2,14 +2,12 @@ package org.example2;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-
 import java.util.Properties;
 import java.util.stream.IntStream;
 
 public class Producer {
 
 	private final KafkaProducer<String, String> producer;
-
 	private static final String KAFKA_SERVER_URL = "localhost";
 	private static final int KAFKA_SERVER_PORT = 9092;
 	private static final String CLIENT_ID = "SampleProducer";
@@ -28,7 +26,7 @@ public class Producer {
 		try {
 			IntStream.range(1, 300001).forEach(i -> {
 				System.out.println("message " + i);
-				p.producer.send(new ProducerRecord<>("testTopic10", String.valueOf(i), "message " + i));
+				p.producer.send(new ProducerRecord<>("testTopic11", String.valueOf(i), "message " + i));
 			});
 		} catch (Exception e) {
 			e.printStackTrace();
