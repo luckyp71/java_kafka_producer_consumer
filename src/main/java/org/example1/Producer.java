@@ -14,12 +14,12 @@ import java.util.concurrent.Executors;
 
 public class Producer {
 
-	private static KafkaProducer<String, String> kafkaProducer;
+	private final KafkaProducer<String, String> kafkaProducer;
 	private static final String CLIENT_ID = "SampleProducer";
-	private static Properties props = new Properties();
-	private static ExecutorService ex = Executors.newCachedThreadPool();
+	private static ExecutorService ex = Executors.newFixedThreadPool(200000);
 	
 	public Producer() {
+		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9092");
 		props.put("client.id", CLIENT_ID);
 		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -29,13 +29,11 @@ public class Producer {
 
 	public static void main(String args[]) {
 		Collection<String> messages = new ArrayList<>();
-
-		IntStream.range(1, 20001).forEach(i -> {
+		IntStream.range(1, 300001).forEach(i -> {
 			messages.add("message " + i);
 		});
 
 		Producer p = new Producer();
-
 		p.sendMessages(messages).parallelStream().forEach(i -> {
 			try {
 				i.get();
@@ -45,13 +43,12 @@ public class Producer {
 				e.printStackTrace();
 			}
 		});
-		ex.shutdown();
-
+		ex.shutdownNow();
 	}
 
 	public Collection<CompletableFuture<Void>> sendMessages(Collection<String> messages) {
 		Collection<CompletableFuture<Void>> sendMessages = new ArrayList<>();
-		messages.stream().forEach(m -> {
+		messages.forEach(m -> {
 			sendMessages.add(sendMessage(m));
 		});
 		return sendMessages;
@@ -61,10 +58,10 @@ public class Producer {
 		return CompletableFuture.runAsync(() -> {
 			try {
 				System.out.println(message);
-				kafkaProducer.send(new ProducerRecord<>("testTopic4", message));
+				kafkaProducer.send(new ProducerRecord<>("testTopic8", message));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}, ex);
+		});
 	}
 }
