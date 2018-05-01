@@ -26,7 +26,7 @@ public class Producer {
 		try {
 			IntStream.range(1, 300001).forEach(i -> {
 				System.out.println("message " + i);
-				p.producer.send(new ProducerRecord<>("testTopic12", String.valueOf(i), "message " + i));
+				p.producer.send(new ProducerRecord<>("testTopic1", String.valueOf(i), "message " + i));
 			});
 		} catch (Exception e) {
 			e.printStackTrace();

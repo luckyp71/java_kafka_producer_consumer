@@ -32,7 +32,7 @@ public class Consumer {
 	public static void main(String args[]) {
 		Consumer c = new Consumer();
 		Collection<String> topics = new ArrayList<>();
-		topics.add("testTopic12");
+		topics.add("testTopic1");
 		c.consumer.subscribe(topics);
 
 		try {

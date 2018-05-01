@@ -31,7 +31,7 @@ public class Consumer {
 		Consumer c = new Consumer();
 		
 		Collection<String> topics = new ArrayList<>();
-		topics.add("testTopic12");
+		topics.add("testTopic1");
 		c.consumer.subscribe(topics);
 		
 		try {

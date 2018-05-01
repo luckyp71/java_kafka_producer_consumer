@@ -37,7 +37,7 @@ public class Producer extends Thread {
 	}
 	
 	public static void main (String args[]) {
-		Producer p = new Producer("testTopic12");
+		Producer p = new Producer("testTopic1");
 		p.start();
 	}
 }

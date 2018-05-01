@@ -18,7 +18,7 @@ public class Consumer {
 
 		KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
 		List<String> topics = new ArrayList<>();
-		topics.add("testTopic11");
+		topics.add("testTopic1");
 		kafkaConsumer.subscribe(topics);
 		try {
 			while (true) {

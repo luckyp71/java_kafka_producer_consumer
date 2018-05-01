@@ -57,7 +57,7 @@ public class Producer {
 		return CompletableFuture.runAsync(() -> {
 			try {
 				System.out.println(message);
-				kafkaProducer.send(new ProducerRecord<>("testTopic15", message));
+				kafkaProducer.send(new ProducerRecord<>("testTopic1", message));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
