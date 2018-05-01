@@ -13,7 +13,7 @@ The example is divided into three packages, each package contains kafka's produc
 The purpose of dividing the example is to implement the three different ways of kafka's producer in sending the messsage.
 In example1 package, you might see the kafka's producer use java 8's CompletableFuture in sending the message.
 Example2, the kafka's producer send the message synchronously and for the example3, the kafka's producer send the message 
-asynchronously using thread as well as kafka's callback interface. 
+asynchronously, in which this producer class extending thread class as well as implementing the kafka's callback interface. 
 	
 Following are the steps to simulate the communication between kafka's producer and consumer of each package:
 1. Start ZooKeeper Server
