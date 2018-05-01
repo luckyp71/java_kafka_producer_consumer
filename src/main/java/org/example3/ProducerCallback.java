@@ -15,6 +15,7 @@ public class ProducerCallback implements Callback{
 		this.message = message;
 	}
 	
+	@Override
 	public void onCompletion(RecordMetadata metadata, Exception exception) {
 		long elapsedTime = System.currentTimeMillis() - startTime;
 		if (metadata != null) {

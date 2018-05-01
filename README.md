@@ -11,7 +11,7 @@ Prerequisites:
 
 The example is divided into three packages, each package contains kafka's producer and consumer classes.
 The purpose of dividing the example is to implement the three different ways of kafka's producer in sending the messsage.
-In example1 package, you might see the kafka's producer use java 8's CompletableFuture in sending the message.
+In example1 package, you might see the kafka's producer uses java 8's CompletableFuture in sending the message.
 Example2, the kafka's producer send the message synchronously and for the example3, the kafka's producer send the message 
 asynchronously, in which this producer class is extending thread class as well as implementing the kafka's callback interface. 
 	
