@@ -17,7 +17,7 @@ asynchronously, in which its producer class is extending thread class as well as
 	
 Following are the steps to simulate the communication between kafka's producer and consumer of each package:
 1. Start ZooKeeper Server
-2. Start Kafka Server
+2. Start Kafka Server (Broker)
 3. Create Kafka Topic
 3. Run Producer class
 4. Run Consumer class
